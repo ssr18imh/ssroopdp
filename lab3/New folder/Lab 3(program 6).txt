@@ -1,0 +1,38 @@
+public class TypePromotionExample {
+
+    public static void main(String[] args) {
+        TypePromotionExample example = new TypePromotionExample();
+
+       
+        example.printValue(10);         // int argument
+        example.printValue(10.5f);      // float argument
+        example.printValue(10L);        // long argument
+        example.printValue(10.5);       // double argument
+
+        
+        int intValue = example.demoteDouble(10.5);
+    }
+
+   
+    private void printValue(int value) {
+        System.out.println("Printing int value: " + value);
+    }
+
+    private void printValue(float value) {
+        System.out.println("Printing float value: " + value);
+    }
+
+    private void printValue(long value) {
+        System.out.println("Printing long value: " + value);
+    }
+
+    private void printValue(double value) {
+        System.out.println("Printing double value: " + value);
+    }
+
+    
+    private int demoteDouble(double value) {
+        // Compiler error: Possible loss of precision
+        return (int) value;
+    }
+}
